@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
-import HomePage from './pages/ HomePage';
+import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
 import UsersPage from './pages/UsersPage';
 import NotFoundPage from './pages/NotFoundPage';
