@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import UserPage from './pages/UserPage';
@@ -11,17 +11,34 @@ import LoginPage from './pages/LoginPage';
 import NewPostPage from './pages/NewPostPage';
 import MessagePage from './pages/MessagePage';
 import { AuthContext } from './components/AuthContext';
+import { User } from './types/user';
 
+const userTest = {
+    email: 'johndoe@test.com',
+    araCode: 'wechje',
+    role: 'BASIC',
+    blackListed: false,
+    fieldId: 'ewhgcu3hg',
+    centerId: 'hedwhhj',
+    name: 'john',
+    surname: 'Doe'
+}
 
 function App() {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
-    const [loggedIn, setLoggedIn] = useState<boolean>(true);
-    const [isAdmin, setIsAdmin] = useState<boolean>(true);
+    const [user, setUser] = useState<User | undefined>();
+
+    useEffect(() => {
+        if (userTest) {
+            setUser(userTest)
+        }
+    }, [])
+
     return (
-        <AuthContext.Provider value={{ isAdmin, setIsAdmin }}>
+        <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen }}>
             <div id="page-container">
-                <Header loggedIn={loggedIn} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-                {loggedIn && <Drawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
+                <Header/>
+                {user && <Drawer />}
                 <Routes>
                     <Route path='/users' element={<UsersPage />} />
                     <Route path='/users/:id' element={<UserPage />} />

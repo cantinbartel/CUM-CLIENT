@@ -1,11 +1,14 @@
-import { DrawerButtonProps } from '../types/props';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiUser, BiTrip, BiHomeAlt2 } from 'react-icons/bi';
 import { AiFillCar } from 'react-icons/ai';
 import { FiUsers} from 'react-icons/fi';
+import { AuthContext } from './AuthContext'
 
 
-const Drawer = ({ menuOpen, setMenuOpen }: DrawerButtonProps) => {
+const Drawer = () => {
+  const auth = useContext(AuthContext);
+  const { menuOpen } = auth || {}
   const navigate = useNavigate();
   const options = [
     { title: 'Home', icon: <BiHomeAlt2 />, link: '/' },
@@ -20,7 +23,7 @@ const Drawer = ({ menuOpen, setMenuOpen }: DrawerButtonProps) => {
           <p 
             key={i}
             className='mt-8 flex hover:text-slate-300'
-            onClick={() => {navigate(opt.link); setMenuOpen(false)}}>
+            onClick={() => {navigate(opt.link); auth?.setMenuOpen(false)}}>
             <a className='mr-3'>{opt.icon}</a>{opt.title}</p>
         ))}
     </div>
