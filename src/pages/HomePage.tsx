@@ -1,5 +1,7 @@
 import Button from '../components/Button';
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import biUserLogo from '../components/pexels-photo-4616548.png';
+
 
 const  HomePage = (): JSX.Element => {
   const navigate = useNavigate()
@@ -12,6 +14,9 @@ const  HomePage = (): JSX.Element => {
           className="mr-12"
           onClick={() => navigate('/new-post')}>Poster une annonce</Button>
         <Button onClick={() => navigate('/posts')}>Voir les annonces</Button>
+      </div>
+      <div className="mt-20">
+      <img src={biUserLogo} alt="User Logo" className="w-50 h-50 ml-2" />
       </div>
     </div>
   )

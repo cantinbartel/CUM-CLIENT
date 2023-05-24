@@ -11,6 +11,9 @@ import LoginPage from './pages/LoginPage';
 import NewPostPage from './pages/NewPostPage';
 import MessagePage from './pages/MessagePage';
 import { AuthContext } from './components/AuthContext';
+import MyTripsPage from './pages/MyTripsPage';
+import JourneysPage from './pages/JourneysPage';
+import SignupPage from './pages/SignupPage';
 
 
 function App() {
@@ -24,12 +27,15 @@ function App() {
                 {loggedIn && <Drawer menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
                 <Routes>
                     <Route path='/users' element={<UsersPage />} />
-                    <Route path='/users/:id' element={<UserPage />} />
+                    <Route path='/user/:id' element={<UserPage />} />
                     <Route path='/login' element={<LoginPage />} />
+                    <Route path='/sign_up' element={<SignupPage />} />
                     <Route path='/new-post' element={<NewPostPage />} />
                     <Route path='/users/:id/messages' element={<MessagePage />} />
                     <Route path='/' element={<HomePage />} />
                     <Route path="*" element={<NotFoundPage />} />
+                    <Route path='/my-trips' element={<MyTripsPage />} />
+                    <Route path='/journeys' element={<JourneysPage />} />
                 </Routes>
             </div>
         </AuthContext.Provider>

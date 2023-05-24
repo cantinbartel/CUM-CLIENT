@@ -2,28 +2,31 @@ import DrawerButton from './DrawerButton';
 import { Link } from 'react-router-dom';
 import { DrawerButtonProps } from '../types/props';
 import { BiLogIn } from 'react-icons/bi';
+import { BiUser } from 'react-icons/bi';
 import Button from '../components/Button';
+import biUserLogo from '../components/CUM_1.png';
 
 type HeaderProps = {
-  loggedIn: Boolean
-  menuOpen: boolean
-  setMenuOpen: (menuOpen: boolean) => void
+  loggedIn: boolean;
+  menuOpen: boolean;
+  setMenuOpen: (menuOpen: boolean) => void;
 };
 
 const Header = ({ loggedIn, menuOpen, setMenuOpen }: HeaderProps) => (
-  <div className="bg-sky-600 text-white text-4xl py-8 flex justify-between items-center pl-12 text-center">
+  <div className="bg-red-600 text-white text-4xl py-8 flex justify-between items-center pl-12 text-center">
     {loggedIn && <DrawerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
-      <Link to='/'>
-        <p className='text-center font-semibold hover:text-slate-300 cursor-pointer'>CUM APP</p>
+    <div className="logo-container">
+      <Link to="/" className="flex items-center">
+        <img src={biUserLogo} alt="User Logo" className="logo" />
       </Link>
-    {!loggedIn && (
-      <div className="w-1/3">
-       <Link to='/signin' className="mr-4">Sign in</Link>
-       <Button variant="test">Sign up</Button>
-       </div>
+    </div>
+    {loggedIn && (
+      <div className="w-1/3 flex items-center justify-end">
+        <Link to="/login" className="mr-2 text-white">Log in</Link>
+        <span className="text-white mx-2">|</span>
+        <Link to="/sign_up" className="mr-4 text-white">Sign up</Link>
+      </div>
     )}
-    {loggedIn && <div className="mr-12">Cantin</div>}
-    {/* <Link to='/tasks'><BiLogIn className='mr-20 hover:text-slate-300 cursor-pointer'/></Link> */}
   </div>
 );
 

@@ -38,6 +38,17 @@ const UserForm = () => {
         value={email}
         required
         onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
+        <label
+        className="capitalize text-gray-600 font-semibold flex"
+        htmlFor="email">code CNAM<CgAsterisk className="text-xs text-red-500" /></label>
+      <input
+        className="w-full px-4 py-2 bg-gray-100 font-semibold mb-4 mt-2 rounded outline-none"
+        id="codeCNAM" 
+        type="codeCNAM"
+        placeholder="Enter code CNAM"
+        value={email}
+        required
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
       <Button className="mt-4">Create</Button>
     </form>
   )
