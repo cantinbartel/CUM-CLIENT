@@ -13,7 +13,8 @@ const UserPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-screen flex flex-col items-center">
+    <div className='scrollable-container'>
+    <div className="w-screen flex flex-col items-center overflow-y-auto">
       {!open && (
         <>
           <p className="mt-12 text-5xl">Mon Compte</p>
@@ -47,13 +48,17 @@ const UserPage = () => {
               <div className="flex items-center mb-4">
                 <label className="capitalize text-gray-600 font-semibold text-xl mr-3">Filière</label>
               </div>
+              <div className="flex items-center mb-4">
+                <label className="capitalize text-gray-600 font-semibold text-xl mr-3">Année scolaire</label>
+              </div>
             </div>
           </div>
-          <Button className="mt-24" onClick={() => setOpen(true)}>
+          <Button className="mt-24 text-xl px-6 py-3" onClick={() => setOpen(true)}>
             Modifier
           </Button>
         </>
       )}
+    </div>
     </div>
   );
 };

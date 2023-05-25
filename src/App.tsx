@@ -14,6 +14,7 @@ import { AuthContext } from './components/AuthContext';
 import MyTripsPage from './pages/MyTripsPage';
 import JourneysPage from './pages/JourneysPage';
 import SignupPage from './pages/SignupPage';
+import PostPage from './pages/PostPage';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                     <Route path="*" element={<NotFoundPage />} />
                     <Route path='/my-trips' element={<MyTripsPage />} />
                     <Route path='/journeys' element={<JourneysPage />} />
+                    <Route path='/posts' element={<PostPage />} />
                 </Routes>
             </div>
         </AuthContext.Provider>

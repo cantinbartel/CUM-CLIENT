@@ -4,9 +4,11 @@ import UserList from '../components/UserList';
 import UserForm from '../components/UserForm';
 import Modal from '../components/Modal';
 import Button from '../components/Button';
+import PostForm from '../components/PostForm';
+import PostList from '../components/PostList';
 
 
-const UsersPage = () => {
+const PostPage = () => {
   const [users, setUsers] = useState<[]>([]);
   const [addUserModal, setAddUserModal] = useState(false);
 
@@ -23,21 +25,20 @@ const UsersPage = () => {
       { !addUserModal && (
         <>
           <div className='w-11/12 md:w-3/4 lg:w-8/12 xl:w-7/12'>
-            <p className='text-3xl capitalize text-center md:text-start'>Users</p>
-            <UserList users={users} />
+            <p className='text-3xl capitalize text-center md:text-start'>Posts</p>
+            <PostList users={users} />
           </div>
-          <Button className='mt-8 lg:mt-0 text-xl px-6 py-3 lg:absolute right-40' onClick={() => setAddUserModal(true)}>Add User</Button>
         </>
       )}
       { addUserModal && (
         <Modal
         isOpen={addUserModal}
         onClose={() => setAddUserModal(false)}
-        title='Add a new user'><UserForm /></Modal>
+        title='Add a new user'><PostForm /></Modal>
       )}
     </div>
     </div>
   )
 };
 
-export default UsersPage;
+export default PostPage;

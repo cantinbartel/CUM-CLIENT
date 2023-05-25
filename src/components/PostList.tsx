@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
    users: []
  };
 
- const UserList = ({ users }: UserListPropsType ) => {
+ const PostList = ({ users }: UserListPropsType ) => {
    const navigate = useNavigate();
 
    return (
@@ -13,8 +13,9 @@ import { useNavigate } from 'react-router-dom';
        <thead className="w-full border border-gray-200">
            <tr className='py-4'>
                <th className="px-2 py-3 text-left">NAME</th>
-               <th className="px-2 text-left">EMAIL</th>
-               <th className="px-2 text-left">NUMERO ARA</th>
+               <th className="px-2 text-left">Trajet</th>
+               <th className="px-2 text-left">Titre</th>
+               <th className="px-2 text-left">Description</th>
            </tr>
        </thead>
        {/* <tbody>
@@ -32,4 +33,4 @@ import { useNavigate } from 'react-router-dom';
    )
  };
 
- export default UserList;
+ export default PostList;

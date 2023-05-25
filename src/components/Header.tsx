@@ -17,7 +17,7 @@ const Header = ({ loggedIn, menuOpen, setMenuOpen }: HeaderProps) => (
     {loggedIn && <DrawerButton menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
     <div className="logo-container">
       <Link to="/" className="flex items-center">
-        <img src={biUserLogo} alt="User Logo" className="logo" />
+        <img src={biUserLogo} alt="User Logo" className="ml-[600px] logo" />
       </Link>
     </div>
     {loggedIn && (
