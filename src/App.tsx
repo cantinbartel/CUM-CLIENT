@@ -16,7 +16,7 @@ import { User } from './types/user';
 const userTest = {
     email: 'johndoe@test.com',
     araCode: 'wechje',
-    role: 'BASIC',
+    role: 'ADMIN',
     blackListed: false,
     fieldId: 'ewhgcu3hg',
     centerId: 'hedwhhj',
@@ -40,7 +40,7 @@ function App() {
                 <Header/>
                 {user && <Drawer />}
                 <Routes>
-                    <Route path='/users' element={<UsersPage />} />
+                    <Route path='/admin/users' element={<UsersPage />} />
                     <Route path='/users/:id' element={<UserPage />} />
                     <Route path='/login' element={<LoginPage />} />
                     <Route path='/new-post' element={<NewPostPage />} />
