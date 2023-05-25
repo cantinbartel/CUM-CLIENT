@@ -30,15 +30,17 @@ const userTest = {
 function App() {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const [user, setUser] = useState<User | undefined>();
+    const [isAuthInitialized, setIsAuthInitialized] = useState(false);
 
     useEffect(() => {
         if (userTest) {
             setUser(userTest)
+            setIsAuthInitialized(true);
         }
     }, [])
 
     return (
-        <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen }}>
+        <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen, isAuthInitialized }}>
             <div id="page-container">
                 <Header/>
                 {user && <Drawer />}
