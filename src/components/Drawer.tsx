@@ -12,9 +12,9 @@ const Drawer = () => {
   const navigate = useNavigate();
   const options = [
     { title: 'Home', icon: <BiHomeAlt2 />, link: '/' },
-    { title: 'Profile', icon: <BiUser />, link: '/users' },
+    { title: 'Profile', icon: <BiUser />, link: '/profile' },
     { title: 'My trips', icon: <AiFillCar/>, link: '/tasks' },
-    { title: 'Users', icon: <FiUsers />, link: '/users' },
+    { title: 'Users', icon: <FiUsers />, link: '/admin/users' },
     { title: 'Journeys', icon: <BiTrip />, link: '/users' },
   ];
   return (
