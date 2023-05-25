@@ -15,11 +15,12 @@ import cumLogo from '../assets/images/cumLogo.png';
 
 const Header = () => {
   const auth = useContext(AuthContext);
+  const { user } = auth || {}
   console.log('AUTH in HEADER', auth)
   return (
     <div className="bg-red-600 text-white text-4xl py-2 flex justify-between items-center px-12 text-center">
       <div className="w-1/3">
-        {auth && <DrawerButton />}
+        {user && <DrawerButton />}
       </div>
 
         <Link to='/'>
@@ -38,7 +39,7 @@ const Header = () => {
             <div>
               <Link to="/login" className="mr-2 text-white text-sm hover:text-gray-50 hover:cursor-pointer">Log in</Link>
                 <span className="text-white mx-2 text-sm">|</span>
-              <Link to="/sign_up" className="mr-4 text-white text-sm hover:text-gray-50 hover:cursor-pointer">Sign up</Link>
+              <Link to="/sign-up" className="mr-4 text-white text-sm hover:text-gray-50 hover:cursor-pointer">Sign up</Link>
             </div>
           </>
         )}

@@ -14,11 +14,13 @@ import { AuthContext } from './components/AuthContext';
 import { User } from './types/user';
 import ProfilePage from './pages/ProfilePage';
 import Message from './pages/MessagePage';
+import SignupPage from './pages/SignupPage';
 
 const userTest = {
     email: 'johndoe@test.com',
     araCode: 'wechje',
-    role: 'ADMIN',
+    // role: 'ADMIN',
+    role: 'BASIC',
     blackListed: false,
     // fieldId: 'ewhgcu3hg',
     field: 'Informatique',
@@ -44,11 +46,12 @@ function App() {
         <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen, isAuthInitialized }}>
             <div id="page-container">
                 <Header/>
-                {user && <Drawer />}
+                <Drawer />
                 <Routes>
                     <Route path='/admin/users' element={<UsersPage />} />
                     <Route path='/users/:id' element={<UserPage />} />
                     <Route path='/login' element={<SigninPage />} />
+                    <Route path='/sign-up' element={<SignupPage />} />
                     <Route path='/new-post' element={<NewPostPage />} />
                     <Route path='/users/:id/messages' element={<MessagePage />} />
                     <Route path='/profile' element={<ProfilePage />} />
