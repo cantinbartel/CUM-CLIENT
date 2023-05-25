@@ -1,9 +1,10 @@
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect, useContext, ChangeEvent } from 'react';
 import Button from './Button';
 import { CgAsterisk } from 'react-icons/cg';
 // import { addTask } from '../services/task';
 import { User } from '../types/user';
 // import { getUsers } from '../services/user';
+import { AuthContext } from './AuthContext';
 
 
 type EditUserProps = {
@@ -13,28 +14,22 @@ type EditUserProps = {
     user: User | undefined
 };
 
-const EditUser = ({ refresh, setRefresh, close, user }: EditUserProps) => {
+const EditUser = ({ refresh, setRefresh, close }: EditUserProps) => {
+    
+    const auth = useContext(AuthContext);
+    const { user } = auth || {}
     const [userInfo, setUserInfo] = useState<User | undefined>(user);
-    // const [completed, setCompleted] = useState<boolean>(task?.completed || false);
 
     const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
+        auth?.setUser(userInfo)
         // if(!task) return;
         // updateTask({ title, description, user: task?.user, completed }, task._id)
         // .then(() => setRefresh(refresh+1));
         close();
     };
 
-
-//   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
-//     e.preventDefault();
-
-//     addTask({ title, description, user: usr ? usr._id : userId })
-//       .then(() => setRefresh(refresh+1));
-    
-//     close();
-//   };
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <label
@@ -44,7 +39,7 @@ const EditUser = ({ refresh, setRefresh, close, user }: EditUserProps) => {
         className="w-full px-4 py-2 bg-gray-100 font-semibold mb-4  mt-2 rounded outline-none"
         id="name" 
         type="text"
-        value={user?.name}
+        value={userInfo?.name}
         required
         onChange={(e: ChangeEvent<HTMLInputElement>) => setUserInfo({...userInfo, name: e.target.value})} />
       <label
@@ -54,7 +49,7 @@ const EditUser = ({ refresh, setRefresh, close, user }: EditUserProps) => {
         className="w-full px-4 py-2 bg-gray-100 font-semibold mb-4  mt-2 rounded outline-none"
         id="name" 
         type="text"
-        value={user?.surname}
+        value={userInfo?.surname}
         required
         onChange={(e: ChangeEvent<HTMLInputElement>) => setUserInfo({...userInfo, surname: e.target.value})} />
       <label
@@ -64,7 +59,7 @@ const EditUser = ({ refresh, setRefresh, close, user }: EditUserProps) => {
         className="w-full px-4 py-2 bg-gray-100 font-semibold mb-4  mt-2 rounded outline-none"
         id="name" 
         type="email"
-        value={user?.surname}
+        value={userInfo?.email}
         required
         onChange={(e: ChangeEvent<HTMLInputElement>) => setUserInfo({...userInfo, email: e.target.value})} />
       <Button className="mt-4">Modifier</Button>
