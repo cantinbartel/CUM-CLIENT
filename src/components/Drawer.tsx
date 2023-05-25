@@ -18,7 +18,7 @@ const Drawer = () => {
     { title: 'Journeys', icon: <BiTrip />, link: '/users' },
   ];
   return (
-    <div className={`fixed bg-sky-700 opacity-80 sm:opacity-50 text-white text-3xl pl-8 sm:pl-16 lg:pl-24 h-screen pt-24 w-1/2 lg:w-1/3 xl:w-1/4 left-0 ${menuOpen ? 'transition overscroll-none' : '-translate-x-full transition'} cursor-pointer z-20`}>
+    <div className={`fixed bg-red-600 opacity-80 sm:opacity-50 text-white text-3xl pl-8 sm:pl-16 lg:pl-24 h-screen pt-24 w-1/2 lg:w-1/3 xl:w-1/4 left-0 ${menuOpen ? 'transition overscroll-none' : '-translate-x-full transition'} cursor-pointer z-20`}>
         {options.map((opt, i) => (
           <p 
             key={i}

@@ -9,7 +9,7 @@ type ButtonProps = {
 };
 
 const styles: any = {
-  default: 'bg-sky-600 text-white py-2 px-4 w-fit rounded cursor-pointer hover:bg-sky-700',
+  default: 'bg-red-600 text-white py-2 px-4 w-fit rounded cursor-pointer hover:bg-red-700',
   primary: 'bg-sky-600 text-white py-2 px-4 w-fit rounded cursor-pointer hover:bg-sky-700 hover:scale-105',
   danger: 'bg-red-600 text-white py-2 px-4 w-fit rounded cursor-pointer hover:bg-red-700',
   test: 'bg-red-600 text-white py-2 px-4 w-fit rounded cursor-pointer hover:bg-pink-500'
