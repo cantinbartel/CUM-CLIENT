@@ -7,12 +7,13 @@ import NotFoundPage from './pages/NotFoundPage';
 import './assets/css/index.css';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
-import LoginPage from './pages/LoginPage';
+import SigninPage from './pages/SigninPage';
 import NewPostPage from './pages/NewPostPage';
 import MessagePage from './pages/MessagePage';
 import { AuthContext } from './components/AuthContext';
 import { User } from './types/user';
 import ProfilePage from './pages/ProfilePage';
+import Message from './pages/MessagePage';
 
 const userTest = {
     email: 'johndoe@test.com',
@@ -47,10 +48,11 @@ function App() {
                 <Routes>
                     <Route path='/admin/users' element={<UsersPage />} />
                     <Route path='/users/:id' element={<UserPage />} />
-                    <Route path='/login' element={<LoginPage />} />
+                    <Route path='/login' element={<SigninPage />} />
                     <Route path='/new-post' element={<NewPostPage />} />
                     <Route path='/users/:id/messages' element={<MessagePage />} />
                     <Route path='/profile' element={<ProfilePage />} />
+                    <Route path='/messages' element={<MessagePage />} />
                     <Route path='/' element={<HomePage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>

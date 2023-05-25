@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BiUser, BiTrip, BiHomeAlt2 } from 'react-icons/bi';
+import { BiUser, BiTrip, BiHomeAlt2, BiMessage } from 'react-icons/bi';
 import { AiFillCar } from 'react-icons/ai';
 import { FiUsers} from 'react-icons/fi';
 import { AuthContext } from './AuthContext'
@@ -13,6 +13,7 @@ const Drawer = () => {
   const options = [
     { title: 'Home', icon: <BiHomeAlt2 />, link: '/' },
     { title: 'Profile', icon: <BiUser />, link: '/profile' },
+    { title: 'Messages', icon: <BiMessage />, link: '/messages' },
     { title: 'My trips', icon: <AiFillCar/>, link: '/tasks' },
     { title: 'Users', icon: <FiUsers />, link: '/admin/users' },
     { title: 'Journeys', icon: <BiTrip />, link: '/users' },
