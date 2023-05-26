@@ -36,11 +36,17 @@ function App() {
     const [isAuthInitialized, setIsAuthInitialized] = useState(false);
 
     useEffect(() => {
-        if (userTest) {
-            setUser(userTest)
+        // if (userTest) {
+        //     setUser(userTest)
+        //     setIsAuthInitialized(true);
+        // }
+        if (!user) {
+            setIsAuthInitialized(false);
+        }
+         if (user) {
             setIsAuthInitialized(true);
         }
-    }, [])
+    }, [user])
 
     return (
         <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen, isAuthInitialized }}>

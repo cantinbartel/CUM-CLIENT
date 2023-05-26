@@ -18,3 +18,28 @@ export const getUsers = async(jwt: string) => {
         console.log(error);
     }
 };
+
+export const verifyPassword = async(email: string, password: string) => {
+
+    try {
+
+        const data = {
+            email,
+            password
+        }
+
+        const response = await fetch(`${backendUrl}/api/users/verifyPassword`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        });
+        const verification = await response.json();
+        console.log('VERIFICATION', verification);
+        return verification;
+    } catch(error) {
+        console.log(error);
+    }
+
+};

@@ -1,6 +1,7 @@
 import { useState, ChangeEvent } from 'react';
 import { CgAsterisk } from 'react-icons/cg';
 import Button from '../components/Button';
+import { verifyPassword } from '../api/user';
 
 
 const SigninPage = () => {
@@ -9,7 +10,11 @@ const SigninPage = () => {
 
   const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault(); 
-    // api/fetch
+
+    const res = verifyPassword(email, password);
+
+    console.log(res);
+    
     setEmail('');
     setPassword('');
   };
@@ -38,7 +43,7 @@ const SigninPage = () => {
                     type="password"
                     value={password}
                     required
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} />
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} />
                 <Button className="mt-4">OK</Button>
             </form>
           </div>
