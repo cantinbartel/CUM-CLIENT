@@ -19,6 +19,29 @@ export const getUsers = async(jwt: string) => {
     }
 };
 
+/* GET USER */
+type getUserParams = {
+    userId: string,
+    jwt: string
+}
+
+export const getUser = async({userId, jwt}: getUserParams) => {
+    try {
+        const response = await fetch(`${backendUrl}/api/users/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwt}` 
+            }
+        });
+        const user = await response.json();
+        console.log('USER INFO', user);
+        return user;
+    } catch(error) {
+        console.log(error);
+    }
+};
+
 export const verifyPassword = async(email: string, password: string) => {
 
     try {

@@ -9,4 +9,5 @@ export type User = {
     blackListed?: boolean
     name?: string
     surname?: string
+    jwt?: string
 }

@@ -34,22 +34,23 @@ function App() {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const [user, setUser] = useState<User | undefined>();
     const [isAuthInitialized, setIsAuthInitialized] = useState(false);
-
+    
     useEffect(() => {
-        // if (userTest) {
-        //     setUser(userTest)
-        //     setIsAuthInitialized(true);
-        // }
-        if (!user) {
+        const userInfo = localStorage.getItem('user');
+        console.log('INSIDE FUNCTION')
+        if (userInfo) {
+            const user = JSON.parse(userInfo); 
+            setUser(user);
+            // setIsAuthInitialized(true);
+        } else {
             setIsAuthInitialized(false);
         }
-         if (user) {
-            setIsAuthInitialized(true);
-        }
-    }, [user])
+    }, [isAuthInitialized]); // No dependency, will run only once when component mounts
+    
+    
 
     return (
-        <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen, isAuthInitialized }}>
+        <AuthContext.Provider value={{ user, setUser, menuOpen, setMenuOpen, isAuthInitialized, setIsAuthInitialized }}>
             <div id="page-container">
                 <Header/>
                 <Drawer />

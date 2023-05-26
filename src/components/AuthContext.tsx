@@ -6,7 +6,8 @@ interface AuthContextType {
   setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
   menuOpen: boolean;
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  isAuthInitialized: boolean
+  isAuthInitialized: boolean,
+  setIsAuthInitialized: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const AuthContext = React.createContext<AuthContextType | undefined>(undefined);

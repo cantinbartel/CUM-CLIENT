@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiUser, BiTrip, BiHomeAlt2, BiMessage } from 'react-icons/bi';
 import { AiFillCar } from 'react-icons/ai';
-import { FiUsers} from 'react-icons/fi';
+import { FiUsers, FiLogOut } from 'react-icons/fi';
 import { AuthContext } from './AuthContext'
 
 
@@ -30,6 +30,12 @@ const Drawer = () => {
     }
   }, [auth])
 
+  const handleLogout = () => {
+    localStorage.removeItem('user')
+    auth?.setMenuOpen(false)
+    auth?.setIsAuthInitialized(false)
+    navigate('/');
+  }
 
   return (
     <div className={`fixed bg-red-600 opacity-80 sm:opacity-50 text-white text-3xl pl-8 sm:pl-16 lg:pl-24 h-screen pt-24 w-1/2 lg:w-1/3 xl:w-1/4 left-0 ${menuOpen ? 'transition overscroll-none' : '-translate-x-full transition'} cursor-pointer z-20`}>
@@ -40,6 +46,11 @@ const Drawer = () => {
             onClick={() => {navigate(opt.link); auth?.setMenuOpen(false)}}>
             <a className='mr-3'>{opt.icon}</a>{opt.title}</p>
         ))}
+        <p 
+            key='logout'
+            className='mt-8 flex hover:text-slate-300'
+            onClick={handleLogout}>
+            <a className='mr-3'><FiLogOut /></a>Logout</p>
     </div>
   )
 };

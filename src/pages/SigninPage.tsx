@@ -1,20 +1,27 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useContext } from 'react';
 import { CgAsterisk } from 'react-icons/cg';
 import Button from '../components/Button';
 import { verifyPassword } from '../api/user';
+import { AuthContext } from '../components/AuthContext';
 
 
 const SigninPage = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const auth = useContext(AuthContext);
 
-  const handleSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault(); 
 
-    const res = verifyPassword(email, password);
+    const res = await verifyPassword(email, password);
 
     console.log(res);
-    
+
+    // Stocker le token JWT dans le local storage
+    console.log('JSON.stringify(res)', JSON.stringify(res))
+    localStorage.setItem('user', JSON.stringify(res));
+    auth?.setUser(res.user)
+    auth?.setIsAuthInitialized(true)
     setEmail('');
     setPassword('');
   };
