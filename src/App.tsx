@@ -41,7 +41,7 @@ function App() {
         if (userInfo) {
             const user = JSON.parse(userInfo); 
             setUser(user);
-            // setIsAuthInitialized(true);
+            setIsAuthInitialized(true);
         } else {
             setIsAuthInitialized(false);
         }

@@ -3,6 +3,7 @@ import { CgAsterisk } from 'react-icons/cg';
 import Button from '../components/Button';
 import { verifyPassword } from '../api/user';
 import { AuthContext } from '../components/AuthContext';
+import { useNavigate } from 'react-router-dom'
 
 
 const SigninPage = () => {
@@ -10,8 +11,11 @@ const SigninPage = () => {
   const [password, setPassword] = useState<string>('');
   const auth = useContext(AuthContext);
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault(); 
+
 
     const res = await verifyPassword(email, password);
 
@@ -24,6 +28,7 @@ const SigninPage = () => {
     auth?.setIsAuthInitialized(true)
     setEmail('');
     setPassword('');
+    navigate('/')
   };
 
   return (
